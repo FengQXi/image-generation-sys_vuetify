@@ -8,6 +8,8 @@ import AutoImport from "unplugin-auto-import/vite";
 // Utilities
 import { defineConfig } from "vite";
 import { fileURLToPath, URL } from "node:url";
+import { createSvgIconsPlugin } from 'vite-plugin-svg-icons';
+import path from 'path'
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -20,6 +22,12 @@ export default defineConfig({
     }),
     AutoImport({
       imports: ["vue", "vue-router", "pinia"],
+    }),
+    createSvgIconsPlugin({
+      // 指定要缓存的图标文件夹
+      iconDirs: [path.resolve(process.cwd(), 'src/icons/svg')],
+      // 执行icon name的格式
+      symbolId: 'icon-[name]'
     }),
   ],
   define: { "process.env": {} },

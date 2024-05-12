@@ -15,11 +15,11 @@
                     cover
                     :src="'data:image/png;base64,' + item.b64_image"
                 ></v-img>
-                <!-- <SvgIcon
+                <SvgIcon
                     @click="handleFavorite(item)"
                     :icon-class="item.id ? 'favorite-filling' : 'favorite-empty'"
                     class="image-icon"
-                ></SvgIcon> -->
+                ></SvgIcon>
             </div>
         </div>
 

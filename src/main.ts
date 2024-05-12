@@ -21,12 +21,15 @@ import i18n from "./plugins/i18n";
 import "vue3-lottie/dist/style.css";
 import Vue3Lottie from "vue3-lottie";
 import { autoAnimatePlugin } from '@formkit/auto-animate/vue'
+import { registerSvgIcon } from './icons'
 
 import '@/permission'
 
 const pinia = createPinia();
 pinia.use(piniaPersist);
 const app = createApp(App);
+
+registerSvgIcon(app)
 
 app.use(router);
 app.use(PerfectScrollbar);
