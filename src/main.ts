@@ -22,6 +22,8 @@ import "vue3-lottie/dist/style.css";
 import Vue3Lottie from "vue3-lottie";
 import { autoAnimatePlugin } from '@formkit/auto-animate/vue'
 
+import '@/permission'
+
 const pinia = createPinia();
 pinia.use(piniaPersist);
 const app = createApp(App);

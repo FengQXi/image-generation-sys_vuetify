@@ -7,8 +7,8 @@ const isLoading = ref(false);
 const isSignInDisabled = ref(false);
 
 const refLoginForm = ref();
-const email = ref("vuetify3-visitor@gmail.com");
-const password = ref("sfm12345");
+const userName = ref("");
+const password = ref("");
 const isFormValid = ref(true);
 
 // show password field
@@ -19,7 +19,7 @@ const handleLogin = async () => {
   if (valid) {
     isLoading.value = true;
     isSignInDisabled.value = true;
-    authStore.loginWithEmailAndPassword(email.value, password.value);
+    authStore.loginWithNameAndPassword(userName.value, password.value, "");
   } else {
     console.log("no");
   }
@@ -31,8 +31,8 @@ const signInWithGoolgle = () => {
 
 // Error Check
 const emailRules = ref([
-  (v: string) => !!v || "E-mail is required",
-  (v: string) => /.+@.+\..+/.test(v) || "E-mail must be valid",
+  (v: string) => !!v || "username is required",
+//   (v: string) => /.+@.+\..+/.test(v) || "E-mail must be valid",
 ]);
 
 const passwordRules = ref([
@@ -73,16 +73,16 @@ const signInWithFacebook = () => {
       >
         <v-text-field
           ref="refEmail"
-          v-model="email"
+          v-model="userName"
           required
           :error="error"
-          label="邮箱"
+          label="用户名"
           density="default"
           variant="underlined"
           color="primary"
           bg-color="#fff"
           :rules="emailRules"
-          name="email"
+          name="userName"
           outlined
           validateOn="blur"
           placeholder="403474473@qq.com"
@@ -121,14 +121,14 @@ const signInWithFacebook = () => {
           >登录</v-btn
         >
 
-        <div
+        <!-- <div
           class="text-grey text-center text-caption font-weight-bold text-uppercase my-5"
         >
           或使用
-        </div>
+        </div> -->
 
         <!-- external providers list -->
-        <v-btn
+        <!-- <v-btn
           class="mb-2 text-capitalize"
           color="white"
           elevation="1"
@@ -151,17 +151,17 @@ const signInWithFacebook = () => {
         >
           <Icon icon="logos:facebook" class="mr-3" />
           Facebook
-        </v-btn>
+        </v-btn> -->
 
         <div v-if="errorProvider" class="error--text my-2">
           {{ errorProviderMessages }}
         </div>
 
-        <div class="mt-5 text-center">
+        <!-- <div class="mt-5 text-center">
           <router-link class="text-primary" to="/auth/forgot-password">
             忘记密码
           </router-link>
-        </div>
+        </div> -->
       </v-form></v-card-text
     >
   </v-card>

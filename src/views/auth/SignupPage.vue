@@ -3,7 +3,7 @@ import { Icon } from "@iconify/vue";
 import { useAuthStore } from "@/stores/authStore";
 
 const authStore = useAuthStore();
-const username = ref("");
+// const username = ref("");
 
 // sign in buttons
 const isLoading = ref(false);
@@ -11,7 +11,7 @@ const isSignInDisabled = ref(false);
 
 const refLoginForm = ref();
 const isFormValid = ref(true);
-const email = ref("");
+const userName = ref("");
 const password = ref("");
 
 // show password field
@@ -23,17 +23,17 @@ const handleRegister = async () => {
   if (valid) {
     isLoading.value = true;
     isSignInDisabled.value = true;
-    authStore.registerWithEmailAndPassword(email.value, password.value);
+    authStore.registerWithNameAndPassword(userName.value, password.value);
   } else {
     console.log("no");
   }
 };
 
 // Error Check
-const emailRules = ref([
-  (v: string) => !!v || "E-mail is required",
-  (v: string) => /.+@.+\..+/.test(v) || "E-mail must be valid",
-]);
+// const emailRules = ref([
+//   (v: string) => !!v || "username is required",
+// //   (v: string) => /.+@.+\..+/.test(v) || "E-mail must be valid",
+// ]);
 
 const usernameRules = ref([(v: string) => !!v || "UserNmae is required"]);
 
@@ -70,7 +70,7 @@ const resetErrors = () => {
         v-model="isFormValid"
         lazy-validation
       >
-        <v-text-field
+        <!-- <v-text-field
           v-model="username"
           required
           :error="error"
@@ -85,19 +85,19 @@ const resetErrors = () => {
           validateOn="blur"
           @keyup.enter="handleRegister"
           @change="resetErrors"
-        ></v-text-field>
+        ></v-text-field> -->
         <v-text-field
           ref="refEmail"
-          v-model="email"
+          v-model="userName"
           required
           :error="error"
-          label="邮箱"
+          label="用户名"
           density="default"
           variant="underlined"
           color="primary"
           bg-color="#fff"
-          :rules="emailRules"
-          name="email"
+          :rules="usernameRules"
+          name="userName"
           outlined
           validateOn="blur"
           @keyup.enter="handleRegister"
@@ -141,7 +141,7 @@ const resetErrors = () => {
         </div>
 
         <!-- external providers list -->
-        <v-btn
+        <!-- <v-btn
           class="mb-2 lighten-2 text-capitalize"
           block
           size="x-large"
@@ -161,7 +161,7 @@ const resetErrors = () => {
         >
           <Icon icon="logos:facebook" class="mr-3" />
           Facebook
-        </v-btn>
+        </v-btn> -->
 
         <div v-if="errorProvider" class="error--text my-5">
           {{ errorProviderMessages }}
