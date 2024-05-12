@@ -48,6 +48,11 @@ export default defineConfig({
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/dev-api/, '')
       },
+      '/dev-qf-api': {
+        target: 'https://aip.baidubce.com',
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/dev-qf-api/, '')
+      },
     },
   },
   css: {

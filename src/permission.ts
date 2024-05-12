@@ -39,7 +39,7 @@ router.beforeEach(async (to, from, next) => {
                     await auth.restAuthorization()
                     // 这里要调用组件提示
                     const snackbarStore = useSnackbarStore();
-                    snackbarStore.showErrorMessage(error);
+                    snackbarStore.showErrorMessage(error || 'Has Error');
                     // Message.error(error || 'Has Error')
                     console.log(error);
                     next(`/login?redirect=${to.path}`)
