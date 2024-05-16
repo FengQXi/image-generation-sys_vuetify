@@ -40,7 +40,7 @@ const navs = [
         <v-badge content="2" color="success" dot bordered>
           <v-avatar size="40">
             <v-img
-              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwrAiMevuwrbU9o0Ck2paVf4ufHUDb2dU48MEDrAlrQw&s"
+              :src="authStore.profile?.avatar || 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwrAiMevuwrbU9o0Ck2paVf4ufHUDb2dU48MEDrAlrQw&s'"
             ></v-img>
           </v-avatar>
         </v-badge>
@@ -55,18 +55,18 @@ const navs = [
           <template v-slot:prepend>
             <v-avatar size="40">
               <v-img
-                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwrAiMevuwrbU9o0Ck2paVf4ufHUDb2dU48MEDrAlrQw&s"
+                :src="authStore.profile?.avatar || 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwrAiMevuwrbU9o0Ck2paVf4ufHUDb2dU48MEDrAlrQw&s'"
               ></v-img>
             </v-avatar>
           </template>
 
           <v-list-item-title class="font-weight-bold text-primary">
-            YANG J.K.
+            {{ authStore.profile?.name || "Feng Q.X." }}
             <StatusMenu />
           </v-list-item-title>
           <v-list-item-subtitle>
             <!-- {{ $store.state.user.email  }} -->
-            yjkbako@gmail.com
+            guangxu0711@gmail.com
           </v-list-item-subtitle>
         </v-list-item>
       </v-list>
@@ -75,7 +75,7 @@ const navs = [
       <!-- Menu Area -->
       <!-- ---------------------------------------------- -->
 
-      <v-list variant="flat" elevation="0" :lines="false" density="compact">
+      <!-- <v-list variant="flat" elevation="0" :lines="false" density="compact">
         <v-list-item
           color="primary"
           v-for="(nav, i) in navs"
@@ -97,12 +97,12 @@ const navs = [
           </div>
         </v-list-item>
       </v-list>
-      <v-divider />
+      <v-divider /> -->
       <!-- ---------------------------------------------- -->
       <!-- Logout Area -->
       <!-- ---------------------------------------------- -->
       <v-list variant="flat" elevation="0" :lines="false" density="compact">
-        <v-list-item color="primary" to="nav.link" link density="compact">
+        <!-- <v-list-item color="primary" to="nav.link" link density="compact">
           <template v-slot:prepend>
             <v-avatar size="30">
               <v-icon>mdi-lifebuoy</v-icon>
@@ -114,7 +114,7 @@ const navs = [
               帮助中心
             </v-list-item-subtitle>
           </div>
-        </v-list-item>
+        </v-list-item> -->
         <v-list-item
           color="primary"
           link

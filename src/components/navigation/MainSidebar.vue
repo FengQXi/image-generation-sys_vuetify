@@ -12,7 +12,7 @@ const customizeTheme = useCustomizeThemeStore();
 const navigation = ref(configs.navigation);
 
 const openGithubSite = () => {
-  window.open("https://github.com/yangjiakai", "_blank");
+  window.open("https://github.com/FengQXi", "_blank");
 };
 
 onMounted(() => {
@@ -96,12 +96,12 @@ const scrollToBottom = () => {
             >
               <Icon width="30" icon="line-md:github-loop" />
             </v-btn>
-            Yang J.K.
+            Feng Q.X.
           </v-card-title>
           <v-card-subtitle> </v-card-subtitle>
           <v-card-text>
             <div><b>Github:</b></div>
-            <div>github.com/yangjiakai</div>
+            <div>github.com/FengQXi</div>
           </v-card-text>
           <v-card-actions>
             <v-btn

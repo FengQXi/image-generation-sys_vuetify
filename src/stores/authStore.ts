@@ -78,7 +78,8 @@ export const useAuthStore = defineStore("auth", {
     },
 
     logout() {
-      router.push({ name: "auth-signin" });
+        this.restAuthorization()
+        router.push({ name: "auth-signin" });
     },
 
     restAuthorization() {
@@ -110,7 +111,7 @@ export const useAuthStore = defineStore("auth", {
                         profile: {
                             id: this.id,
                             name: data.name,
-                            avatar: "",
+                            avatar: "https://avatars.githubusercontent.com/u/96679896?s=96&v=4",
                         }
                     })
                 }
